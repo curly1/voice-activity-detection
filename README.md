@@ -10,3 +10,4 @@ $ cd voice-activity-detection/
 $ pip install -r requirements.txt
 $ pip install -e .
 ```
+2. Data evaluation
