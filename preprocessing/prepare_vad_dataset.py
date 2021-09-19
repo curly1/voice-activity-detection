@@ -23,7 +23,7 @@ def prepare_vad_dataset(
     :return: a Dict whose key is the dataset part, and the value is Dicts with the keys 'audio' and 'supervisions'.
     """
     
-    corpus_dir = Path(corpus_dir)
+    #corpus_dir = Path(corpus_dir)
     assert corpus_dir.is_dir(), f'No such directory: {corpus_dir}'
     if output_dir is not None:
         output_dir = Path(output_dir)
@@ -32,9 +32,9 @@ def prepare_vad_dataset(
     # Generate a mapping: utt_id -> (audio_path, audio_info, text)
     recordings = []
     supervisions = []
-    for json_file in glob.glob(corpus_dir + "*.json"):
-        recording_id = json_file.strip(".json")
-        audio_path = f'{recording_id}.wav'
+    for json_file in corpus_dir.glob("*.json"):
+        recording_id = json_file.stem
+        audio_path = json_file.with_suffix('.wav')
         if not audio_path.is_file():
             logging.warning(f'No such file: {audio_path}')
             continue
@@ -47,7 +47,8 @@ def prepare_vad_dataset(
             start = seg_json["start_time"]
             end = seg_json["end_time"]
             segment = SupervisionSegment(
-                id=recording_id + "-" + round(float(start), 2) + "-" + round(float(end), 2),
+                id=recording_id + "-" + str(round(float(start), 2)) \
+                        + "-" + str(round(float(end), 2)),
                 recording_id=recording_id,
                 start=float(start),
                 duration=round(float(end) - float(start), ndigits=8),
