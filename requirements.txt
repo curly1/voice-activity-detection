@@ -4,3 +4,4 @@ numpy
 sox
 pandas
 gdown
+scikit-learn
