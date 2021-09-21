@@ -1,7 +1,7 @@
 lhotse==0.8.0
-matplotlib
-numpy
-sox
-pandas
-gdown
+numpy==1.21.2
+sox==1.4.1
+pandas==1.3.2
+gdown==3.13.1
 scikit-learn
+matplotlib
