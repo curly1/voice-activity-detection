@@ -13,8 +13,8 @@ $ pip install -e .
 
 ## 2. Scope
 
-The goal of the project was to develop a Voice Activity Detection system using Neural Networks. The overall approach is as follows:
+The goal of the project was to develop a Voice Activity Detection system using Neural Networks. Main tools used in the project:
 
-- [Lhotse library](https://github.com/lhotse-speech/lhotse) was used to prepare the data;
-- PyTorch was used for the NN modelling part;
-- 
+- [Lhotse library](https://github.com/lhotse-speech/lhotse) for data preparation and data augmentation;
+- PyTorch for NN modelling;
+- scikit-learn and matplotlib for analysing and visualising the results.

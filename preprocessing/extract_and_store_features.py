@@ -1,4 +1,5 @@
 from pathlib import Path
+import argparse
 
 from lhotse import LilcomFilesWriter
 
@@ -10,17 +11,25 @@ import prepare_vad_dataset
 
 def main():
 
-    # Set paths
-    root_dir = Path('evaluation/data')
-    corpus_dir = root_dir / 'vad_data/'
-    output_dir = root_dir / 'vad_data_nb/'
+    parser = argparse.ArgumentParser(description="Extract and store features.")
+    parser.add_argument(
+        "--data-dir", type=str, default=Path('evaluation/data/vad_data')
+    )
+    parser.add_argument(
+        "--data-augment", type=bool, default=False
+    )
+    args = parser.parse_args()
+
+    corpus_dir = args.data_dir
+    output_dir = corpus_dir + "_nb"
+    use_data_augmentation = args.data_augment
 
     # Other settings
     num_mel_bins = 80
-    use_data_augmentation = True
-
+    
     # Prepare VAD dataset 
-    vad_manifests = prepare_vad_dataset.prepare_vad_dataset(corpus_dir, output_dir)
+    vad_manifests = prepare_vad_dataset.prepare_vad_dataset(
+                    corpus_dir, output_dir)
 
     # Compute and store features
     cuts = CutSet.from_manifests(
