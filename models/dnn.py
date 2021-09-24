@@ -2,7 +2,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class DNN(nn.Module):
-    def __init__(self, input_size, hidden_size, num_classes=1):
+    def __init__(self, input_size, hidden_size, num_classes=2):
         super(DNN, self).__init__()
         self.fc1 = nn.Linear(input_size, hidden_size)
         self.bn1 = nn.BatchNorm1d(hidden_size)

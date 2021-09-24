@@ -46,11 +46,17 @@ def smooth_predictions(
                 n += 1
 
     # Min consecutive speech frames
-    #counter = 0
-    #for i, pred in enumerate(smoothed_preds):
-    #    if pred == 1.0 and counter <= min_speech_frames:
-    #        counter += 1
-    #    else:
-    #        counter = 0
+    seg_len = 0
+    for i, v in enumerate(smoothed_preds):
+        if v == 1.0:
+            seg_len += 1
+            if i == len(smoothed_preds)-1:
+                for j in range(i-seg_len, i+1):
+                    smoothed_preds[j] = 0.0
+        if v == 0.0:
+            if seg_len < min_speech_frames:
+                for j in range(i-seg_len, i):
+                    smoothed_preds[j] = 0.0
+            seg_len = 0
     
     return smoothed_preds
