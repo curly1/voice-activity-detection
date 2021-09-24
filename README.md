@@ -22,7 +22,9 @@ The goal of the project was to develop a Voice Activity Detection system using N
 
 - Run the preprocessing script. 
 
-    ```python preprocessing/extract_and_store_features.py --data-dir "vad_data" --data-augment True```
+    ```
+    $ python preprocessing/extract_and_store_features.py --data-dir "vad_data" --data-augment True
+    ```
 
     `data-dir` is the folder with wav and corresponding json files. 
     
