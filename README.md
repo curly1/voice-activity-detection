@@ -22,7 +22,7 @@ The goal of the project was to develop a Voice Activity Detection system using N
 
 - Run the preprocessing script. 
 
-    ```python preprocessing/extract_and_store_features.py --data-dir "evaluation/data/vad_data" --data-augment True```
+    ```python preprocessing/extract_and_store_features.py --data-dir "vad_data" --data-augment True```
 
     `data-dir` is the folder with wav and corresponding json files. 
     
@@ -109,36 +109,36 @@ Yellow corresponds to speech.
 
 Data and features
 
-- [] Use a bigger dataset
-- [] Further explore data augmentation
-- [] Loudness normalisation, feature normalisation
-- [] Use alternative input representations, combination of features, or raw waveform for an end-to-end framework
+- [ ] Use a bigger dataset
+- [ ] Further explore data augmentation
+- [ ] Loudness normalisation, feature normalisation
+- [ ] Use alternative input representations, combination of features, or raw waveform for an end-to-end framework
 
 
 Evaluation
 
-- [] Evaluation for noisy data (artificially add noise to the same recordings to test the robustness to real-world noise environments)
-- [] Evaluation for recordings captured with different microphones (microphone distance variation)
-- [] Improve analysis of the results, e.g. ROC curve
-- [] Evaluate smoothing performance
-- [] Performance comparison with different VAD tools, e.g. WebRTC
-- [] Better logging for experiments (e.g. Weights and Biases)
+- [ ] Evaluation for noisy data (artificially add noise to the same recordings to test the robustness to real-world noise environments)
+- [ ] Evaluation for recordings captured with different microphones (microphone distance variation)
+- [ ] Improve analysis of the results, e.g. ROC curve
+- [ ] Evaluate smoothing performance
+- [ ] Performance comparison with different VAD tools, e.g. WebRTC
+- [ ] Better logging for experiments (e.g. Weights and Biases)
 
 Modelling
 
-- [] Use a more powerful classifier
-- [] Hyperparameter tuning, different optimizers and regularization approaches
-- [] Use more output classes
-- [] Mixture of experts
-- [] Early stopping
-- [] Multi-resolution representation learning (MultiOctConv)
+- [ ] Use a more powerful classifier
+- [ ] Hyperparameter tuning, different optimizers and regularization approaches
+- [ ] Use more output classes
+- [ ] Mixture of experts
+- [ ] Early stopping
+- [ ] Multi-resolution representation learning (MultiOctConv)
 
 Deployment and software
-- [] Implement real-time inference for low latency
-- [] Write tests
-- [] Use Docker
-- [] CI/CD
-- [] Export the model to ONNX
+- [ ] Implement real-time inference for low latency
+- [ ] Write tests
+- [ ] Use Docker
+- [ ] CI/CD
+- [ ] Export the model to ONNX
 
 
 
