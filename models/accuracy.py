@@ -1,23 +1,21 @@
 import numpy as np
 from typing import List, Tuple
 import torch
-from torch import Tensor
 
 def compute_acc_without_pad(
-    y_pred: Tensor, 
-    y_test: Tensor
+    y_pred, 
+    y_test
 ) -> Tuple[float, List[float], List[float]]: 
 
     """
     Computes accuracy and returns accuracy, as well as predictions and labels without padding.
 
-    :param y_pred: 
-    :param y_test:
+    :param y_pred: Tensor of predictions for N examples, size (N, N_classes)
+    :param y_test: Tensor of labels for N examples, size (N, 1)
     :return: Accuracy, list of predictions, list of labels
     """
     
     y_pred_tag = torch.round(torch.sigmoid(y_pred))
-    
     pred_vals = [ float(np.argmax(item)) for item in y_pred_tag.detach() ]
     labels = [ float(item) for item in y_test.detach() ]
 
